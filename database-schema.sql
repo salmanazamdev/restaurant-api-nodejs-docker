@@ -1,3 +1,4 @@
+-- Users table
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
@@ -8,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     deleted_at TIMESTAMP DEFAULT NULL
 );
 
+-- Restaurants table
 CREATE TABLE IF NOT EXISTS restaurants (
     restaurant_id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -18,6 +20,7 @@ CREATE TABLE IF NOT EXISTS restaurants (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Menu Items table (linked to restaurants)
 CREATE TABLE IF NOT EXISTS menu_items (
     item_id SERIAL PRIMARY KEY,
     restaurant_id INT NOT NULL,
@@ -29,7 +32,8 @@ CREATE TABLE IF NOT EXISTS menu_items (
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(restaurant_id)
 );
 
-CREATE TABLE IF NOT EXiSTS restaurent_customers (
+-- Customers table (linked to restaurant)
+CREATE TABLE IF NOT EXISTS restaurent_customers (
     customer_id SERIAL PRIMARY KEY,
     restaurant_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -40,6 +44,7 @@ CREATE TABLE IF NOT EXiSTS restaurent_customers (
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(restaurant_id)
 );
 
+-- Orders table (linked to customer and restaurant)
 CREATE TABLE IF NOT EXISTS orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -50,4 +55,4 @@ CREATE TABLE IF NOT EXISTS orders (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (customer_id) REFERENCES restaurent_customers(customer_id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(restaurant_id)
-)
+);
