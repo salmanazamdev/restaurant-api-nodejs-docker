@@ -1,6 +1,3 @@
-Absolutely! Here's the complete **README.md** content in clean **Markdown** format — you can directly copy this into your `README.md` file:
-
-````markdown
 # 🍽️ Restaurant Management API (Node.js + PostgreSQL + Docker)
 
 This is a full-featured backend RESTful API for managing a restaurant system. It is built using **Node.js**, **Express**, and **PostgreSQL**, and is fully containerized using **Docker**.
