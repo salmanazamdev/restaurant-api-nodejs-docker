@@ -45,5 +45,4 @@ build/
 # ✅ Ignore coverage reports
 coverage/
 
-# ✅ Ignore db seed files
-*.db-seed.sql
+
