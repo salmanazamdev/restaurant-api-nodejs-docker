@@ -30,6 +30,13 @@ const {
   deleteCustomer
 } = require('./functions/customer');
 
+// Import Order API Handlers
+const {
+  createOrder,
+  getOrdersByRestaurantId,
+  updateOrderById
+} = require('./functions/order');
+
 // Initialize Express App
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -54,11 +61,16 @@ app.get('/menus/:restaurantId', getMenuItemsByRestaurant);
 app.put('/menus/:id', updateMenuItem);
 app.delete('/menus/:id', deleteMenuItem);
 
-// Customer CRUD APIs
+// Customer CRUD APIs // crud means create, read, update, delete
 app.post('/customers', createCustomer);
 app.get('/customers/:restaurantId', getCustomersByRestaurant);
 app.put('/customers/:id', updateCustomer);
 app.delete('/customers/:id', deleteCustomer);
+
+// Order APIs
+app.post('/orders', createOrder);
+app.get('/orders/:restaurantId', getOrdersByRestaurantId);
+app.put('/orders/:id', updateOrderById);
 
 // Start the Server
 app.listen(PORT, () => {
