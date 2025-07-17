@@ -22,6 +22,14 @@ const {
   deleteMenuItem
 } = require('./functions/menu');
 
+// Import Customer API Handlers
+const {
+  createCustomer,
+  getCustomersByRestaurant,
+  updateCustomer,
+  deleteCustomer
+} = require('./functions/customer');
+
 // Initialize Express App
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -45,6 +53,12 @@ app.post('/menus', createMenuItem);
 app.get('/menus/:restaurantId', getMenuItemsByRestaurant);
 app.put('/menus/:id', updateMenuItem);
 app.delete('/menus/:id', deleteMenuItem);
+
+// Customer CRUD APIs
+app.post('/customers', createCustomer);
+app.get('/customers/:restaurantId', getCustomersByRestaurant);
+app.put('/customers/:id', updateCustomer);
+app.delete('/customers/:id', deleteCustomer);
 
 // Start the Server
 app.listen(PORT, () => {
