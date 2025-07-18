@@ -9,13 +9,13 @@ const createCustomer = async (req, res) => {
   }
 
   try {
-    const existing = await pool.query('SELECT * FROM restaurent_customers WHERE email = $1', [email]);
+    const existing = await pool.query('SELECT * FROM restaurant_customers WHERE email = $1', [email]);
     if (existing.rows.length > 0) {
       return res.status(400).json({ message: 'Customer already exists' });
     }
 
     await pool.query(
-      'INSERT INTO restaurent_customers (restaurant_id, name, email, phone) VALUES ($1, $2, $3, $4)',
+      'INSERT INTO restaurant_customers (restaurant_id, name, email, phone) VALUES ($1, $2, $3, $4)',
       [restaurant_id, name, email, phone]
     );
     res.status(201).json({ message: 'Customer created successfully' });
@@ -30,7 +30,7 @@ const getCustomersByRestaurant = async (req, res) => {
 
   try {
     const customers = await pool.query(
-      'SELECT * FROM restaurent_customers WHERE restaurant_id = $1',
+      'SELECT * FROM restaurant_customers WHERE restaurant_id = $1',
       [restaurantId]
     );
 
@@ -47,7 +47,7 @@ const updateCustomer = async (req, res) => {
 
   try {
     const customer = await pool.query(
-      'SELECT * FROM restaurent_customers WHERE customer_id = $1',
+      'SELECT * FROM restaurant_customers WHERE customer_id = $1',
       [id]
     );
 
@@ -56,7 +56,7 @@ const updateCustomer = async (req, res) => {
     }
 
     await pool.query(
-      'UPDATE restaurent_customers SET name = $1, email = $2, phone = $3 WHERE customer_id = $4',
+      'UPDATE restaurant_customers SET name = $1, email = $2, phone = $3 WHERE customer_id = $4',
       [name, email, phone, id]
     );
 
@@ -72,7 +72,7 @@ const deleteCustomer = async (req, res) => {
 
   try {
     const result = await pool.query(
-      'DELETE FROM restaurent_customers WHERE customer_id = $1',
+      'DELETE FROM restaurant_customers WHERE customer_id = $1',
       [id]
     );
 

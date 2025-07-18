@@ -5,7 +5,7 @@ const express = require('express');
 const welcome = require('./functions/welcome');
 const signup = require('./functions/signup');
 const login = require('./functions/login');
-
+const restarantController = require('./functions/restaurant');
 // Import Restaurant API Handlers
 const {
   createRestaurant,

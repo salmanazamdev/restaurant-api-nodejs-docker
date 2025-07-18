@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS menu_items (
 );
 
 -- Customers table (linked to restaurant)
-CREATE TABLE IF NOT EXISTS restaurent_customers (
+CREATE TABLE IF NOT EXISTS restaurant_customers (
     customer_id SERIAL PRIMARY KEY,
     restaurant_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -53,6 +53,6 @@ CREATE TABLE IF NOT EXISTS orders (
     status VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (customer_id) REFERENCES restaurent_customers(customer_id),
+    FOREIGN KEY (customer_id) REFERENCES restaurant_customers(customer_id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(restaurant_id)
 );

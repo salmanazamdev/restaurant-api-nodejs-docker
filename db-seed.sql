@@ -19,7 +19,7 @@ VALUES
 (2, 'Roghni Naan', 'Soft bread with sesame seeds', 50.00);
 
 -- Customers
-INSERT INTO restaurent_customers (restaurant_id, name, email, phone)
+INSERT INTO restaurant_customers (restaurant_id, name, email, phone)
 VALUES 
 (1, 'Ali Raza', 'ali.raza@samplemail.com', '03031231231'),
 (2, 'Zainab Bukhari', 'zainab.bukhari@samplemail.com', '03111234567');
