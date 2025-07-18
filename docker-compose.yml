@@ -1,10 +1,10 @@
 services:
-  restaurent-api-db:
-    container_name: restaurent-api-container
+  restaurant-api-db:
+    container_name: restaurant-api-container
     image: postgres:14.2
     restart: always
     environment:
-      POSTGRES_DB: "restaurent_db"
+      POSTGRES_DB: "restaurant_db"
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
     ports:
@@ -12,7 +12,7 @@ services:
     expose:
       - "5432"
     volumes:
-      - vol-restaurent-api-db:/var/lib/postgresql/data
+      - vol-restaurant-api-db:/var/lib/postgresql/data
 
 volumes:
-  vol-restaurent-api-db:
+  vol-restaurant-api-db:
